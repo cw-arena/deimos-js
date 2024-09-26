@@ -1,3 +1,3 @@
 [submodule "wasmoon"]
 	path = wasmoon
-	url = https://github.com/ceifa/wasmoon.git
+	url = git@github.com:cw-arena/wasmoon.git
