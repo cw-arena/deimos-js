@@ -9,5 +9,6 @@
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
     "strict": true
-  }
+  },
+  "exclude": ["dist", "wasmoon"]
 }

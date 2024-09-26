@@ -1,8 +1,12 @@
 import { LuaEngine, LuaFactory } from "wasmoon";
+import instanceFactory from "wasmoon/dist/glue.wasm";
 import luaSource from "./source";
 
 const getFactory = (() => {
-  const factory = new LuaFactory();
+  const factory = new LuaFactory({
+    type: "factory",
+    instanceFactory,
+  });
   let initialized = false;
 
   return async () => {
