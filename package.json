@@ -22,5 +22,9 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "type": "module"
+  "type": "module",
+  "overrides": {
+    "glob": "^11.0.0",
+    "globby": "^11.0.0"
+  }
 }
