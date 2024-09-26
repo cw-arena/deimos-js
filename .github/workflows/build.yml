@@ -4,8 +4,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # TODO: Remove when published to LuaRocks
       - uses: actions/checkout@v4
         with:
+          path: deimos
+          repository: cw-arena/deimos
+          submodules: recursive
+      - uses: actions/checkout@v4
+        with:
+          path: deimos-js
           submodules: recursive
       - uses: mymindstorm/setup-emsdk@v14
         with:
@@ -16,13 +23,16 @@ jobs:
           node-version: 22.2.0
           cache: npm
           cache-dependency-path: |
-            package-lock.json
-            wasmoon/package-lock.json
+            deimos-js/package-lock.json
+            deimos-js/wasmoon/package-lock.json
       - name: Build wasmoon
-        working-directory: ./wasmoon
+        working-directory: ./deimos-js/wasmoon
         run: |
           npm ci
           npm run build:wasm:dev
           npm run build
-      - run: npm ci
-      - run: npm run build
+      - name: Build deimos-js
+        working-directory: ./deimos-js
+        run: |
+          npm ci
+          npm run build
