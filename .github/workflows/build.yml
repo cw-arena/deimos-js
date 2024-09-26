@@ -20,4 +20,5 @@ jobs:
           npm ci
           npm run build:wasm:dev
           npm run build
-      - run: npm build
+      - run: npm ci
+      - run: npm run build
